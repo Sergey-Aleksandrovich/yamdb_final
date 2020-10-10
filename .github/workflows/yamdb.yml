@@ -47,7 +47,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker docker-compose up
+          sudo docker-compose up
           sudo docker-compose exec web python manage.py migrate
           docker-compose exec web python manage.py loaddata fixtures.json
   
