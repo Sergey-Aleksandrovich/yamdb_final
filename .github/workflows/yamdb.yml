@@ -48,9 +48,10 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd /home/yandexpraktikum/sprint19/project/yamdb_final
-          sudo docker-compose up
+          sudo docker stop $(sudo docker ps -a -q)
+          sudo docker-compose up -d
           sudo docker-compose exec web python manage.py migrate
-          docker-compose exec web python manage.py loaddata fixtures.json
+          sudo docker-compose exec web python manage.py loaddata fixtures.json
   
   send_message:
     runs-on: ubuntu-latest
