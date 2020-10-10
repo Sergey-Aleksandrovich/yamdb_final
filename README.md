@@ -8,11 +8,6 @@ YamDB - это база отзывов о фильмах, книгах и муз
 
 ### Скачавание и запуск проекта
 
-Команда, для скачивания образов
-
-```
-docker-compose pull
-```
 
 Команда для запуска проекта
  
@@ -23,7 +18,7 @@ docker-compose up
 Команда для выполнения миграций
 
 ```
-docker-compose run web python manage.py migrate
+docker-compose exec web python manage.py migrate
 ```
 
 ### Создание суперпользователя
@@ -31,7 +26,7 @@ docker-compose run web python manage.py migrate
 Команда, для создания суперпользователя
 
 ```
-docker-compose run web python createsuperuser
+ docker-compose exec web python manage.py createsuperuser
 ```
 
 ### Заполнение базы начальными данными
@@ -39,6 +34,6 @@ docker-compose run web python createsuperuser
 Команда для заполнения базы начальными данными
 
 ```
-docker-compose run web python manage.py loaddata fixtures.json
+docker-compose exec web python manage.py loaddata fixtures.json
 ```
 
