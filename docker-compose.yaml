@@ -13,13 +13,11 @@ services:
   web:
     build: .
     restart: always
-    volumes:
-      - ./static:/code/static
     depends_on:
       - db
     env_file:
       - ./api_yamdb/.env
-    command: python manage.py collectstatic && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
+    command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
     image: nginx:1.19.3

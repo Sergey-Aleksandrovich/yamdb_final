@@ -3,7 +3,7 @@ server {
     server_name ${NGINX_IP};
 
     location /static/ {
-        root ./;
+        root /etc/nginx;
     }        
     
     location / {
