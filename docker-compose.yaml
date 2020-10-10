@@ -1,0 +1,37 @@
+version: '3.8'
+
+volumes:
+  postgres_data:
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./api_yamdb/.env
+  web:
+    build: .
+    restart: always
+    volumes:
+      - ./static:/code/static
+    depends_on:
+      - db
+    env_file:
+      - ./api_yamdb/.env
+    command: python manage.py collectstatic && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
+    
+  nginx:
+    image: nginx:1.19.3
+    volumes:
+      - ./templates:/etc/nginx/templates
+      - ./static:/etc/nginx/static
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NGINX_PORT=80
+      - NGINX_IP=84.201.145.161
+      - NGINX_HOST=http://web:8000
+    depends_on:
+      - web

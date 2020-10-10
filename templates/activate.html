@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi {{ email }},
+<form name="input" action="" method="post">
+    <input type="hidden" value="{{ email }}" name="email" />
+    <input type="hidden" value="{{ confirmation_code }}" name="confirmation_code" />
+    <input type="submit" value="Register">
+</form>
+{% endautoescape %}
