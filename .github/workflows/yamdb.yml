@@ -50,6 +50,9 @@ jobs:
           cd /home/yandexpraktikum/sprint19/project/yamdb_final
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker-compose up -d
+          sudo docker-compose exec web python manage.py migrate
+          docker-compose exec web python manage.py loaddata fixtures.json
+          
 
   
   send_message:
