@@ -46,7 +46,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.PORT }}
         script: |
           sudo docker docker-compose up
           sudo docker-compose exec web python manage.py migrate
