@@ -9,21 +9,26 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ./api_yamdb/.env
+      - ./web/api_yamdb/.env
+    environment:
+      PGDATA: /var/lib/postgresql/data/db-files/
   web:
-    build: .
+    build: 
+      context: ./web
+      dockerfile: web/Dockerfile
     restart: always
     depends_on:
       - db
     env_file:
-      - ./api_yamdb/.env
+      - ./web/api_yamdb/.env
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
-    image: nginx:1.19.3
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
     volumes:
-      - ./templates:/etc/nginx/templates
-      - ./static:/etc/nginx/static
+      - ./nginx/templates:/etc/nginx/templates
     ports:
       - "80:80"
       - "443:443"
