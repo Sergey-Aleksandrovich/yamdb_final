@@ -20,13 +20,13 @@ services:
     depends_on:
       - db
     env_file:
-      - ./web/api_yamdb/.env
+      - ./api_yamdb/.env
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
     build:
-      context: .
-      dockerfile: nginx/Dockerfile
+      context: ./nginx
+      dockerfile: Dockerfile_nginx
     volumes:
       - ./nginx/templates:/etc/nginx/templates
     ports:
