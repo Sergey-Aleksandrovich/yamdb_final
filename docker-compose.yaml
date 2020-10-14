@@ -9,7 +9,7 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ./web/api_yamdb/.env
+      - ./api_yamdb/.env
     environment:
       PGDATA: /var/lib/postgresql/data/db-files/
   web:
