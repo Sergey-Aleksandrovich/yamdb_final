@@ -1,0 +1,11 @@
+fixtures.json
+pytest.ini
+README.md
+tests
+venv
+run.sh
+default.conf.template
+postgres_data
+docker-compose.yaml
+Dockerfile_nginx
+Dockerfile_web

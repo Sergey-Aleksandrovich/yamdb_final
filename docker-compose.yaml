@@ -14,8 +14,8 @@ services:
       PGDATA: /var/lib/postgresql/data/db-files/
   web:
     build: 
-      context: ./web
-      dockerfile: web/Dockerfile
+      context: .
+      dockerfile: Dockerfile_web
     restart: always
     depends_on:
       - db
