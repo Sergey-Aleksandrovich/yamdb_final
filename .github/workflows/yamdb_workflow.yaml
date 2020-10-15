@@ -45,7 +45,6 @@ jobs:
         with:
           context: ./nginx
           file: ./nginx/Dockerfile_nginx
-          platforms: linux/amd64
           repository: 7741994/yamdb_nginx
           tag_with_ref: true   
       - 
