@@ -72,10 +72,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-        script: |
-          cd /home/yandexpraktikum/sprint19/project/yamdb_final
-          sudo docker stop $(sudo docker ps -a -q)
-          sudo docker-compose up -d
+          script: |
+            cd /home/yandexpraktikum/sprint19/project/yamdb_final
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker-compose up -d
             
   send_message:
     runs-on: ubuntu-latest
