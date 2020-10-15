@@ -1,3 +1,5 @@
 FROM nginx:1.19.3
 
-COPY ./static /etc/nginx/static
+WORKDIR /static
+
+COPY ./static /static
