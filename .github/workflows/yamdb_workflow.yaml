@@ -43,10 +43,11 @@ jobs:
         name: Push to Docker Hub nginx
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile_nginx
+          context: ./nginx
+          file: ./nginx/Dockerfile_nginx
           repository: 7741994/yamdb_nginx
-          tag_with_ref: true   
+          tag_with_ref: true
+          no-cache: true   
       - 
         name: Push to Docker Hub yamdb
         uses: docker/build-push-action@v2
