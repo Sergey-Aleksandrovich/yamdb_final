@@ -1,3 +1,5 @@
 FROM nginx:1.19.3
 
+RUN mkdir /etc/nginx/static
+
 COPY ./static /etc/nginx/static
