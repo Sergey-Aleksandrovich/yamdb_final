@@ -8,8 +8,6 @@ services:
     image: postgres:13
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./api_yamdb/.env
     environment:
       PGDATA: /var/lib/postgresql/data/db-files/
   web:
@@ -17,12 +15,10 @@ services:
     restart: always
     depends_on:
       - db
-    env_file:
-      - ./api_yamdb/.env
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
-    images: 7741994/yamdb_nginx:v1.000
+    image: 7741994/yamdb_nginx:v1.000
     ports:
       - "80:80"
       - "443:443"
