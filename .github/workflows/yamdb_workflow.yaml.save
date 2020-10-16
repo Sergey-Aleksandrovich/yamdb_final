@@ -32,7 +32,6 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v2
-
       - 
         name: Login to DockerHub
         uses: docker/login-action@v1 
@@ -43,11 +42,10 @@ jobs:
         name: Push to Docker Hub nginx
         uses: docker/build-push-action@v2
         with:
-          push: true
-          context: ./nginx
+          context: .
           file: ./nginx/Dockerfile_nginx
           repository: 7741994/yamdb_nginx
-          tag_with_ref: true  
+          tag_with_ref: true   
       - 
         name: Push to Docker Hub yamdb
         uses: docker/build-push-action@v2
