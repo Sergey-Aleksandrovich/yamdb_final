@@ -13,9 +13,7 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/db-files/
   web:
-    build: 
-      context: .
-      dockerfile: Dockerfile_web
+    image: 7741994/yamdb_web:v1.000
     restart: always
     depends_on:
       - db
@@ -24,9 +22,7 @@ services:
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile_nginx
+    images: 7741994/yamdb_nginx:v1.000
     ports:
       - "80:80"
       - "443:443"
