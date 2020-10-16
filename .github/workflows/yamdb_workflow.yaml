@@ -27,7 +27,7 @@ jobs:
   push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-    #needs: tests
+    #needs: tests пока закомментировал, т.к. много чего не по pep8(длинна строки большая чаще всего). Чтобы следующие джобы делал.
     steps:
       - 
         name: Checkout
@@ -75,7 +75,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/yandexpraktikum/sprint19/project/yamdb_final
+            cd ~/sprint19/project/yamdb_final
             sudo docker stop $(sudo docker ps -a -q)
             sudo docker-compose up -d
             
