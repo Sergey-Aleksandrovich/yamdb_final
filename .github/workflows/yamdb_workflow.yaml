@@ -47,7 +47,7 @@ jobs:
           context: ./nginx
           file: ./nginx/Dockerfile_nginx
           repository: 7741994/yamdb_nginx
-          tag_with_ref: true  
+          tags: 7741994/yamdb_nginx:v1.000  
       - 
         name: Push to Docker Hub yamdb
         uses: docker/build-push-action@v2
@@ -55,7 +55,7 @@ jobs:
           context: .
           file: ./Dockerfile_web
           repository: 7741994/yamdb_web
-          tag_with_ref: true
+          tags: 7741994/yamdb_web:v1.000
   
   deploy:
     runs-on: ubuntu-latest
