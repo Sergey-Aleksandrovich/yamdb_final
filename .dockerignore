@@ -1,10 +1,5 @@
 fixtures.json
-pytest.ini
-README.md
-tests
 venv
-run.sh
 postgres_data
-docker-compose.yaml
 Dockerfile_web
 nginx
