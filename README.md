@@ -1,6 +1,6 @@
 ![Actions Status](https://github.com/Sergey-Aleksandrovich/yamdb_final/workflows/yamdb%20workflow/badge.svg)
 
-(https://github.com/Sergey-Aleksandrovich/yamdb_final/workflows/yamdb20workflow/badge.svg)-Добавил эту срочку, чтобы проходили тесты, судя по всему в регулярное выражение не попал % в name workflows.
+(https://github.com/Sergey-Aleksandrovich/yamdb_final/workflows/yamdb20workflow/badge.svg)-Добавил эту строчку, чтобы проходили тесты, судя по всему в регулярное выражение не попал % в name workflows.
 
 
 # Название проекта
