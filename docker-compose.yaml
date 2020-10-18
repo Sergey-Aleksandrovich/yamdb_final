@@ -11,19 +11,23 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/db-files/
   web:
-   #build: . - для тестов =)
-    build:
-      context: .
-      dockerfile: Dockerfile_web
+    build: .
+    volumes:
+      - .nginx/static:/code/static
     restart: always
     depends_on:
       - db
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000  
     
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile_nginx
+    image: nginx:1.19.3
+    volumes:
+      - ./nginx/static:/etc/nginx/static
+      - ./nginx/templates:/etc/nginx/templates
+    environment:
+      - NGINX_IP=84.201.145.161
+      - NGINX_PORT=80
+      - NGINX_HOST=http://web:8000
     ports:
       - "80:80"
       - "443:443"
