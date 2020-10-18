@@ -48,21 +48,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - 
-        name: Push to Docker Hub nginx
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          context: ./nginx
-          file: ./nginx/Dockerfile_nginx
-          repository: 7741994/yamdb_nginx
-          tags: 7741994/yamdb_nginx:v1.000  
-      - 
         name: Push to Docker Hub yamdb
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: .
-          file: ./Dockerfile_web
           repository: 7741994/yamdb_web
           tags: 7741994/yamdb_web:v1.000
   
