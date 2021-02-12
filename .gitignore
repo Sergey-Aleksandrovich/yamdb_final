@@ -4,6 +4,7 @@ venv/
 .venv
 .venv/
 .env/
+api_yamdb/.env
 
 __pycache__/
 *.py[cod]
