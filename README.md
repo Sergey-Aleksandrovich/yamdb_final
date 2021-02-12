@@ -42,6 +42,12 @@ docker-compose up
 docker-compose exec web python manage.py migrate
 ```
 
+Команда для сбора статики
+
+```
+docker-compose exec web python manage.py collectstatic
+```
+
 ### Создание суперпользователя
 
 Команда, для создания суперпользователя
