@@ -1,4 +1,3 @@
-fixtures.json
 venv
 postgres_data
 Dockerfile_web
